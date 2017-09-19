@@ -6,7 +6,7 @@
 # 2. do nothing - in which case the goblin will attack him anyway
 # 3. flee
 class Creature:
-    def __init__(self, name, power, health, dexterity, armor, skill):
+    def __init__(self, name, power, health, dexterity = 5, armor = 5, skill = 5):
         self.name = name
         self.power = power
         self.health = health
@@ -22,7 +22,7 @@ class Creature:
         if 'Creature' in isinstance(target):
             target.health = target.health - self.power
 class Hero(Creature):
-    def __init__(self, name, power, health, dexterity, armor, skill):
+    def __init__(self, name, power, health, dexterity = 5, armor = 5, skill = 5):
         self.hero_power = power
         self.hero_health = health
         super().__init__(name, power, health, dexterity, armor, skill)
@@ -35,8 +35,11 @@ class Goblin(Creature):
 
 
 def main():
-    hero_health = 10
-    hero_power = 5
+    hero = Hero('Arthur', power=5, health = 10)
+    # hero_health = 10
+    # hero_power = 5
+    
+    goblin = Goblin('Wario', health = 6, power = 2)
     goblin_health = 6
     goblin_power = 2
 
