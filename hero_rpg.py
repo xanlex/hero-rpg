@@ -5,6 +5,34 @@
 # 1. fight goblin
 # 2. do nothing - in which case the goblin will attack him anyway
 # 3. flee
+class Creature:
+    def __init__(self, name, power, health, dexterity, armor, skill):
+        self.name = name
+        self.power = power
+        self.health = health
+        self.dexterity = dexterity
+        self.armor = armor
+        self.skill = skill
+    def alive(self):
+        if self.health > 0:
+            return True
+        else:
+            return False
+    def attack(self, target):
+        if 'Creature' in isinstance(target):
+            target.health = target.health - self.power
+class Hero(Creature):
+    def __init__(self, name, power, health, dexterity, armor, skill):
+        self.hero_power = power
+        self.hero_health = health
+        super().__init__(name, power, health, dexterity, armor, skill)
+
+class Goblin(Creature):
+    def __init__(self, name, power, health ,dexterity, armor, skill):
+        self.goblin_power = power
+        self.goblin_health = health
+        super().__init__(name, power, health, dexterity, armor, skill)
+
 
 def main():
     hero_health = 10
