@@ -28,7 +28,7 @@ class Hero(Creature):
         super().__init__(name, power, health, dexterity, armor, skill)
 
 class Goblin(Creature):
-    def __init__(self, name, power, health ,dexterity, armor, skill):
+    def __init__(self, name, power, health ,dexterity = 5, armor = 5, skill = 5):
         self.goblin_power = power
         self.goblin_health = health
         super().__init__(name, power, health, dexterity, armor, skill)
@@ -36,16 +36,16 @@ class Goblin(Creature):
 
 def main():
     hero = Hero('Arthur', power=5, health = 10)
-    # hero_health = 10
-    # hero_power = 5
+    hero.hero_health = 7
+    hero.hero_power = 2
     
     goblin = Goblin('Wario', health = 6, power = 2)
-    goblin_health = 6
-    goblin_power = 2
+    goblin.goblin_health = 6
+    goblin.goblin_power = 6
 
-    while goblin_health > 0 and hero_health > 0:
-        print("You have {} health and {} power.".format(hero_health, hero_power))
-        print("The goblin has {} health and {} power.".format(goblin_health, goblin_power))
+    while goblin.goblin_health > 0 and hero.hero_health > 0:
+        print("You have {} health and {} power.".format(hero.hero_health, hero.hero_power))
+        print("The goblin has {} health and {} power.".format( goblin.goblin_health,  goblin.goblin_power))
         print()
         print("What do you want to do?")
         print("1. fight goblin")
@@ -55,9 +55,9 @@ def main():
         raw_input = input()
         if raw_input == "1":
             # Hero attacks goblin
-            goblin_health -= hero_power
-            print("You do {} damage to the goblin.".format(hero_power))
-            if goblin_health <= 0:
+            goblin.goblin_health -= hero.hero_power
+            print("You do {} damage to the goblin.".format(hero.hero_power))
+            if  goblin.goblin_health <= 0:
                 print("The goblin is dead.")
         elif raw_input == "2":
             pass
@@ -67,11 +67,11 @@ def main():
         else:
             print("Invalid input {}".format(raw_input))
 
-        if goblin_health > 0:
+        if  goblin.goblin_health > 0:
             # Goblin attacks hero
-            hero_health -= goblin_power
-            print("The goblin does {} damage to you.".format(goblin_power))
-            if hero_health <= 0:
+            hero.hero_health -=  goblin.goblin_power
+            print("The goblin does {} damage to you.".format( goblin.goblin_power))
+            if hero.hero_health <= 0:
                 print("You are dead.")
 
 main()
