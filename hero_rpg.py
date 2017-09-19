@@ -13,11 +13,7 @@ class Creature:
         self.dexterity = dexterity
         self.armor = armor
         self.skill = skill
-    def alive(self):
-        if self.health > 0:
-            return True
-        else:
-            return False
+
     def attack(self, target):
         if 'Creature' in isinstance(target):
             target.health = target.health - self.power
@@ -26,13 +22,22 @@ class Hero(Creature):
         self.hero_power = power
         self.hero_health = health
         super().__init__(name, power, health, dexterity, armor, skill)
-
+    def alive(self):
+        if self.hero_health > 0:
+            return True
+        else:
+            return False
 class Goblin(Creature):
+
     def __init__(self, name, power, health ,dexterity = 5, armor = 5, skill = 5):
         self.goblin_power = power
         self.goblin_health = health
         super().__init__(name, power, health, dexterity, armor, skill)
-
+    def alive(self):
+        if self.goblin_health > 0:
+            return True
+        else:
+            return False        
 
 def main():
     hero = Hero('Arthur', power=5, health = 10)
@@ -43,7 +48,7 @@ def main():
     goblin.goblin_health = 6
     goblin.goblin_power = 6
 
-    while goblin.goblin_health > 0 and hero.hero_health > 0:
+    while goblin.alive() and hero.alive():
         print("You have {} health and {} power.".format(hero.hero_health, hero.hero_power))
         print("The goblin has {} health and {} power.".format( goblin.goblin_health,  goblin.goblin_power))
         print()
@@ -60,6 +65,7 @@ def main():
             if  goblin.goblin_health <= 0:
                 print("The goblin is dead.")
         elif raw_input == "2":
+            print ("Goblin's health is {}, \t Your's is {}".format(goblin.goblin_health, hero.hero_health))
             pass
         elif raw_input == "3":
             print("Goodbye.")
@@ -74,4 +80,7 @@ def main():
             if hero.hero_health <= 0:
                 print("You are dead.")
 
-main()
+    
+
+if __name__ == '__main__':
+    main()
