@@ -17,16 +17,21 @@ class Creature:
     def attack(self, target):
         if 'Creature' in isinstance(target):
             target.health = target.health - self.power
+
+        
+            
 class Hero(Creature):
     def __init__(self, name, power, health, dexterity = 5, armor = 5, skill = 5):
         self.hero_power = power
         self.hero_health = health
+
         super().__init__(name, power, health, dexterity, armor, skill)
     def alive(self):
         if self.hero_health > 0:
             return True
         else:
             return False
+
 class Goblin(Creature):
 
     def __init__(self, name, power, health ,dexterity = 5, armor = 5, skill = 5):
