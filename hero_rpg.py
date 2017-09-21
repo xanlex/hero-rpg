@@ -48,7 +48,6 @@ def main():
     hero = Hero('Arthur', power=5, health = 10)
     hero.hero_health = 7
     hero.hero_power = 2
-    
     goblin = Goblin('Wario', health = 6, power = 2)
     goblin.goblin_health = 6
     goblin.goblin_power = 6
