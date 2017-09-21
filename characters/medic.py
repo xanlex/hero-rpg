@@ -1,12 +1,12 @@
-#Medic Class
+# #Medic Class
 import random
 from sys import path
 path += 'Users/alsu/Documents/code/DC2017/py/hero-rpg'
-from base import Base
+from .base import Base
 
 class Medic(Base):
-    def __init__(self):  
-        super().__init__()
+    def __init__(self, name = '<Medic>'):  
+        super().__init__(name)
         self.MAX_HEALTH = self.health
     
     def recuperate_chance(self):
@@ -33,13 +33,4 @@ class Medic(Base):
             self.defense(),
             self.alive()
             ])
-
-a = Medic()
-a.health = 2
-print (a)
-for i in list(range(1,10)):
-    if a.recuperate_chance() ==  2:
-        print ("\n\n",i, a, "\t", a.MAX_HEALTH, 
-                a.defense())
-        break
 

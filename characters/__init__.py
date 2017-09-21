@@ -1,1 +1,4 @@
-__all__ = ['base', 'goblin', 'wizard', 'hero', 'zombie', 'medic', 'shadow'] #automatically import character classes 
+__all__ = ['Base', 'Hero', 'Medic', 'Shadow'] #automatically import character classes 
+#  'Goblin', 'Wizard', 'Zombie',
+
+# from medic, hero, base
