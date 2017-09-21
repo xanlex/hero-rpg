@@ -12,14 +12,13 @@ class Base:
         self.bounty = bounty
         self.luck = luck # range [-2:2]
     def alive(self):
-        return (self.health > 0)
+        return True if (self.health > 0) else False
     def attack(self):
-        return self.power + self.skill ** self.luck
+        return int(self.power + self.skill ** self.luck)
     def defense(self):
-        return self.armor + self.dexterity ** self.luck
+        return int(self.armor + self.dexterity ** self.luck)
     def __str__(self):
-        return 
-        (self.name,
+        return str([self.name,
         self.power,
         self.health,
         self.dexterity,
@@ -29,7 +28,8 @@ class Base:
         self.luck,
         self.attack(),
         self.defense(),
-        self.alive())
-a = Base('asdf',)
-print(a.luck)
+        self.alive()
+        ])
 
+
+# print("%r", a)
