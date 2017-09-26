@@ -19,18 +19,3 @@ class Medic(Base):
         if self.health < self.MAX_HEALTH and self.recuperate_chance() == 2:
             self.health += 2
         return int(self.armor + self.dexterity ** self.luck)
-
-    def __str__(self):
-            return str([self.name,
-            self.power,
-            self.health,
-            self.dexterity,
-            self.armor,
-            self.skill,
-            self.bounty,
-            self.luck,
-            # self.attack(),
-            self.defense(),
-            self.alive()
-            ])
-
